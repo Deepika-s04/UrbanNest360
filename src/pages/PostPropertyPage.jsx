@@ -84,7 +84,7 @@ export default function PostPropertyPage() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-[#DDA15E] bg-[url('post.jpg')] bg-cover bg-center bg-black/40 bg-blend-multiply">
+    <div className="flex justify-center items-center min-h-screen bg-[#DDA15E] bg-[url('/post.jpg')] bg-cover bg-center bg-black/40 bg-blend-multiply">
       <div className="bg-white rounded-xl shadow-xl w-full max-w-md md:w-[600px] p-4 h-auto md:p-6">
         <h1 className="flex justify-center font-bold text-[#BC6C25] text-lg md:text-2xl">
           Post Your Property
