@@ -569,7 +569,17 @@ const upload = multer({
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
-app.use(cors());
+
+app.use(cors({
+  origin: [
+    'https://urbannnest360.vercel.app',
+    process.env.CLIENT_URL,
+    'http://localhost:5173',
+    'http://localhost:3000'
+  ],
+  credentials: true
+}));
+
 
 
 app.use('/uploads', express.static(uploadsDir));
@@ -669,7 +679,9 @@ app.post('/api/user-properties', authMiddleware, upload.array('images', 8), asyn
       return res.status(400).json({ error: 'Please upload at least one image.' });
     }
 
-    const imageUrls = req.files.map(f => `${process.env.BACKEND_URL || 'http://localhost:5000'}/uploads/${f.filename}`);
+    // const imageUrls = req.files.map(f => `${process.env.BACKEND_URL || 'http://localhost:5000'}/uploads/${f.filename}`);
+    const backendUrl = process.env.BACKEND_URL || `http://localhost:${PORT}`;
+    const imageUrls = req.files.map(f => `${backendUrl}/uploads/${f.filename}`);
 
     const listingType = (category === 'sell' || category === 'buy') ? 'buy' : 'rent';
     const locationParts = (location || '').split(',');
@@ -797,9 +809,30 @@ app.get('/api/interested-buyers/:propertyId', authMiddleware, async (req, res) =
   }
 });
 
+// app.get('/api/buy-properties', async (req, res) => {
+//   try {
+//     const properties = await Property.find({ for: 'buy' }).sort({ createdAt: -1 });
+//     console.log(`Buy: ${properties.length} properties`);
+//     res.json(properties);
+//   } catch (err) {
+//     res.status(500).json({ error: 'Failed to fetch buy properties' });
+//   }
+// });
+
+// app.get('/api/rent-properties', async (req, res) => {
+//   try {
+//     const properties = await Property.find({ for: 'rent' }).sort({ createdAt: -1 });
+//     console.log(`Rent: ${properties.length} properties`);
+//     res.json(properties);
+//   } catch (err) {
+//     res.status(500).json({ error: 'Failed to fetch rent properties' });
+//   }
+// });
 app.get('/api/buy-properties', async (req, res) => {
   try {
-    const properties = await Property.find({ for: 'buy' }).sort({ createdAt: -1 });
+    const properties = await Property.find({ 
+      $or: [{ for: 'buy' }, { category: 'sell' }, { category: 'buy' }] 
+    }).sort({ createdAt: -1 });
     console.log(`Buy: ${properties.length} properties`);
     res.json(properties);
   } catch (err) {
@@ -809,14 +842,15 @@ app.get('/api/buy-properties', async (req, res) => {
 
 app.get('/api/rent-properties', async (req, res) => {
   try {
-    const properties = await Property.find({ for: 'rent' }).sort({ createdAt: -1 });
+    const properties = await Property.find({ 
+      $or: [{ for: 'rent' }, { category: 'rent' }] 
+    }).sort({ createdAt: -1 });
     console.log(`Rent: ${properties.length} properties`);
     res.json(properties);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch rent properties' });
   }
 });
-
 app.get('/api/buy-properties/:id', async (req, res) => {
   try {
     const property = await Property.findOne({ id: parseInt(req.params.id) });
