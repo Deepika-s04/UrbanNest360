@@ -26,7 +26,10 @@
 
 
 // src/hooks/useSocket.js
+import BASE_URL from '../config';  // ← add this
 
+
+const socket = io(BASE_URL);
 
 import { useEffect, useState } from 'react';
 import io from 'socket.io-client';
