@@ -661,19 +661,75 @@ app.get('/api/user-properties', authMiddleware, async (req, res) => {
   }
 });
 
+// app.post('/api/user-properties', authMiddleware, upload.array('images', 8), async (req, res) => {
+//   try {
+//     const { title, category, type, beds, area, price, location, description, desc, amenities } = req.body;
+
+//     console.log('Files received:', req.files?.length || 0);
+//     console.log('title:', title, '| price:', price);
+
+//     if (!req.files || req.files.length === 0) {
+//       return res.status(400).json({ error: 'Please upload at least one image.' });
+//     }
+
+//     // ✅ FIX 2 continued — Cloudinary gives us .path directly, no manual URL building
+//     const imageUrls = req.files.map(f => f.path);
+
+//     const listingType = (category === 'sell' || category === 'buy') ? 'buy' : 'rent';
+//     const locationParts = (location || '').split(',');
+//     const city = locationParts[0]?.trim() || 'Unknown';
+//     const state = locationParts[1]?.trim() || 'Unknown';
+
+//     let parsedAmenities = [];
+//     if (amenities) {
+//       try { parsedAmenities = JSON.parse(amenities); }
+//       catch { parsedAmenities = Array.isArray(amenities) ? amenities : [amenities]; }
+//     }
+
+//     const propertyData = new Property({
+//       title: String(title || ''),
+//       price: Number(price) || 0,
+//       type: String(type || ''),
+//       beds: Number(beds) || 0,
+//       area: Number(area) || 0,
+//       location: String(location || ''),
+//       city,
+//       state,
+//       desc: String(desc || description || 'No description available.'),
+//       amenities: parsedAmenities,
+//       images: imageUrls,
+//       img: imageUrls[0],
+//       postedByEmail: req.user.email,
+//       postedBy: req.user.userId,
+//       category: String(category || ''),
+//       createdAt: new Date(),
+//     });
+
+//     propertyData['for'] = listingType;
+
+//     const saved = await propertyData.save();
+//     console.log(`Posted "${saved.title}" with ${imageUrls.length} images | by: ${req.user.email}`);
+//     io.emit('new-property', saved);
+//     res.status(201).json(saved);
+//   } catch (err) {
+//     console.error('Post error:', err.message);
+//     res.status(500).json({ error: 'Failed to post property', detail: err.message });
+//   }
+// });
+
+
 app.post('/api/user-properties', authMiddleware, upload.array('images', 8), async (req, res) => {
   try {
     const { title, category, type, beds, area, price, location, description, desc, amenities } = req.body;
 
-    console.log('Files received:', req.files?.length || 0);
-    console.log('title:', title, '| price:', price);
+    console.log('📸 Files received:', req.files?.length || 0);
+    console.log('📝 Title:', title, 'Category:', category);
 
     if (!req.files || req.files.length === 0) {
       return res.status(400).json({ error: 'Please upload at least one image.' });
     }
 
-    // ✅ FIX 2 continued — Cloudinary gives us .path directly, no manual URL building
-    const imageUrls = req.files.map(f => f.path);
+    const imageUrls = req.files.map(f => f.path);   // Cloudinary already gives full URL
 
     const listingType = (category === 'sell' || category === 'buy') ? 'buy' : 'rent';
     const locationParts = (location || '').split(',');
@@ -682,8 +738,11 @@ app.post('/api/user-properties', authMiddleware, upload.array('images', 8), asyn
 
     let parsedAmenities = [];
     if (amenities) {
-      try { parsedAmenities = JSON.parse(amenities); }
-      catch { parsedAmenities = Array.isArray(amenities) ? amenities : [amenities]; }
+      try { 
+        parsedAmenities = JSON.parse(amenities); 
+      } catch { 
+        parsedAmenities = Array.isArray(amenities) ? amenities : [amenities]; 
+      }
     }
 
     const propertyData = new Property({
@@ -702,18 +761,23 @@ app.post('/api/user-properties', authMiddleware, upload.array('images', 8), asyn
       postedByEmail: req.user.email,
       postedBy: req.user.userId,
       category: String(category || ''),
+      for: listingType,                    // ← Fixed assignment
       createdAt: new Date(),
     });
 
-    propertyData['for'] = listingType;
-
     const saved = await propertyData.save();
-    console.log(`Posted "${saved.title}" with ${imageUrls.length} images | by: ${req.user.email}`);
+
+    console.log(`✅ Property posted successfully: "${saved.title}" (${imageUrls.length} images)`);
     io.emit('new-property', saved);
+
     res.status(201).json(saved);
   } catch (err) {
-    console.error('Post error:', err.message);
-    res.status(500).json({ error: 'Failed to post property', detail: err.message });
+    console.error('❌ Post Property Error:', err.message);
+    console.error(err.stack);
+    res.status(500).json({ 
+      error: 'Failed to post property', 
+      detail: err.message 
+    });
   }
 });
 
