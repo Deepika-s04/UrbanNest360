@@ -717,19 +717,18 @@ app.get('/api/user-properties', authMiddleware, async (req, res) => {
 //   }
 // });
 
-
 app.post('/api/user-properties', authMiddleware, upload.array('images', 8), async (req, res) => {
   try {
     const { title, category, type, beds, area, price, location, description, desc, amenities } = req.body;
 
     console.log('📸 Files received:', req.files?.length || 0);
-    console.log('📝 Title:', title, 'Category:', category);
+    console.log('📝 Title:', title, '| Category:', category, '| Price:', price);
 
     if (!req.files || req.files.length === 0) {
       return res.status(400).json({ error: 'Please upload at least one image.' });
     }
 
-    const imageUrls = req.files.map(f => f.path);   // Cloudinary already gives full URL
+    const imageUrls = req.files.map(f => f.path);
 
     const listingType = (category === 'sell' || category === 'buy') ? 'buy' : 'rent';
     const locationParts = (location || '').split(',');
@@ -745,15 +744,16 @@ app.post('/api/user-properties', authMiddleware, upload.array('images', 8), asyn
       }
     }
 
-    const propertyData = new Property({
+    // Create property with all fields
+    const newProperty = new Property({
       title: String(title || ''),
       price: Number(price) || 0,
       type: String(type || ''),
       beds: Number(beds) || 0,
       area: Number(area) || 0,
       location: String(location || ''),
-      city,
-      state,
+      city: city,
+      state: state,
       desc: String(desc || description || 'No description available.'),
       amenities: parsedAmenities,
       images: imageUrls,
@@ -761,13 +761,13 @@ app.post('/api/user-properties', authMiddleware, upload.array('images', 8), asyn
       postedByEmail: req.user.email,
       postedBy: req.user.userId,
       category: String(category || ''),
-      for: listingType,                    // ← Fixed assignment
+      for: listingType,
       createdAt: new Date(),
     });
 
-    const saved = await propertyData.save();
+    const saved = await newProperty.save();
 
-    console.log(`✅ Property posted successfully: "${saved.title}" (${imageUrls.length} images)`);
+    console.log(`✅ SUCCESS: Property posted - "${saved.title}" with ${imageUrls.length} images`);
     io.emit('new-property', saved);
 
     res.status(201).json(saved);
