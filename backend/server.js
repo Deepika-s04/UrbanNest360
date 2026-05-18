@@ -567,20 +567,25 @@ const upload = multer({
   }
 });
 
+// app.use(express.json({ limit: '10mb' }));
+// app.use(express.urlencoded({ limit: '10mb', extended: true }));
+// app.use(cors());
+
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
+// ✅ CORS Configuration
 app.use(cors({
   origin: [
     'https://urbannnest360.vercel.app',
+    'https://urbannest360-api.onrender.com',
     process.env.CLIENT_URL,
+    /\.vercel\.app$/,           // Allows all Vercel preview URLs
     'http://localhost:5173',
     'http://localhost:3000'
   ],
   credentials: true
 }));
-
-
 
 app.use('/uploads', express.static(uploadsDir));
 

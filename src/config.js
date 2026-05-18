@@ -3,6 +3,9 @@
 
 
 // src/config.js
-const BASE_URL = import.meta.env.VITE_API_URL || 'https://urbannest360-api.onrender.com';
+const BASE_URL = import.meta.env.VITE_API_URL 
+  || (typeof window !== 'undefined' && window.location.hostname.includes('vercel.app') 
+      ? 'https://urbannest360-api.onrender.com' 
+      : 'https://urbannest360-api.onrender.com');
 
 export default BASE_URL;
