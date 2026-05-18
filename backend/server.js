@@ -574,13 +574,13 @@ const upload = multer({
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
-// ✅ CORS Configuration
+// ✅ FIXED CORS - Supports Production + All Preview URLs
 app.use(cors({
   origin: [
-    'https://urbannnest360.vercel.app',
-    'https://urbannest360-api.onrender.com',
+    'https://urbannnest360.vercel.app',           // Production
+    /\.vercel\.app$/,                             // ALL Vercel preview domains (important!)
     process.env.CLIENT_URL,
-    /\.vercel\.app$/,           // Allows all Vercel preview URLs
+    'https://urbannest360-api.onrender.com',
     'http://localhost:5173',
     'http://localhost:3000'
   ],
