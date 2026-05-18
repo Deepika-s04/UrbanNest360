@@ -1,0 +1,1691 @@
+{
+  "properties": [
+    {
+      "id": 1,
+      "title": "Marine Drive Sea-Facing 4 BHK Apartment",
+      "price": 175000,
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "area": 1850,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg",
+      "desc": "Bright sea-view apartment with large balcony and modern interiors – immediate possession",
+      "amenities": [
+        "Parking",
+        "Gym",
+        "Swimming Pool",
+        "Security",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Koramangala Gated Luxury 5 BHK Villa",
+      "price": 235000,
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "area": 4200,
+      "beds": 5,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/29453302/pexels-photo-29453302.jpeg",
+      "desc": "Private villa with landscaped garden, home theatre and servant room – well-maintained",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Power Backup",
+        "Security",
+        "Club House"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "DLF Camellias Ultra-Luxury Penthouse",
+      "price": 440000,
+      "city": "Delhi",
+      "state": "Delhi",
+      "area": 6800,
+      "beds": 6,
+      "type": "Penthouse",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/323775/pexels-photo-323775.jpeg",
+      "desc": "Top-floor sky lounge penthouse with 360° views and private lift access",
+      "amenities": [
+        "Swimming Pool",
+        "Gym",
+        "Lift",
+        "Security",
+        "Power Backup",
+        "CCTV Surveillance"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "North Goa Beachfront Premium Villa",
+      "price": 265000,
+      "city": "Goa",
+      "state": "Goa",
+      "area": 3800,
+      "beds": 4,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/8134750/pexels-photo-8134750.jpeg",
+      "desc": "Direct beach access luxury villa with infinity pool – long-term preferred",
+      "amenities": [
+        "Swimming Pool",
+        "Garden",
+        "Parking",
+        "Security",
+        "24x7 Water Supply"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Lokhandwala Andheri West Modern 3 BHK",
+      "price": 95000,
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "area": 1350,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/28586201/pexels-photo-28586201.jpeg",
+      "desc": "Semi-furnished 3 BHK in premium society – club house & kids play area included",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Gym",
+        "Power Backup",
+        "Children's Play Area",
+        "Club House"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "C-Scheme Jaipur Royal Heritage Bungalow",
+      "price": 170000,
+      "city": "Jaipur",
+      "state": "Rajasthan",
+      "area": 4500,
+      "beds": 5,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/33846113/pexels-photo-33846113.jpeg",
+      "desc": "Classic Rajasthani bungalow with large lawn – peaceful premium location",
+      "amenities": [
+        "Garden",
+        "Security",
+        "Parking",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Lonavala Hilltop Private Pool Farmhouse",
+      "price": 145000,
+      "city": "Lonavala",
+      "state": "Maharashtra",
+      "area": 7200,
+      "beds": 6,
+      "type": "Farmhouse",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/32870/pexels-photo.jpg",
+      "desc": "Scenic farmhouse with private pool and fruit orchard – weekend getaway ready",
+      "amenities": [
+        "Swimming Pool",
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Sector 62 Noida Triple-Security 4 BHK",
+      "price": 115000,
+      "city": "Noida",
+      "state": "Uttar Pradesh",
+      "area": 3100,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg",
+      "desc": "Luxury gated society flat with club, spa and high-end security",
+      "amenities": [
+        "Gym",
+        "Swimming Pool",
+        "Security",
+        "Lift",
+        "Club House"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Banjara Hills Smart Duplex with Terrace",
+      "price": 195000,
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "area": 3800,
+      "beds": 5,
+      "type": "Duplex",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/16501301/pexels-photo-16501301.jpeg",
+      "desc": "Modern duplex with private rooftop and smart home features",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup",
+        "Security"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Vesu Surat Quiet Row House Rental",
+      "price": 105000,
+      "city": "Surat",
+      "state": "Gujarat",
+      "area": 2600,
+      "beds": 4,
+      "type": "Row House",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg",
+      "desc": "Peaceful row house in premium area with private garden",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Anna Nagar Chennai Bright 3 BHK Flat",
+      "price": 62000,
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "area": 1650,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/1571457/pexels-photo-1571457.jpeg",
+      "desc": "Well-ventilated 3 BHK with excellent natural light and connectivity",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Security",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Whitefield East-Facing Pool Villa",
+      "price": 215000,
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "area": 4600,
+      "beds": 5,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/2155202/pexels-photo-2155202.jpeg",
+      "desc": "East-facing villa with private pool and modern automation features",
+      "amenities": [
+        "Swimming Pool",
+        "Garden",
+        "Gym",
+        "Security",
+        "Parking"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Salt Lake Sector V Metro-Ready Flat",
+      "price": 52000,
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "area": 1400,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/8091515/pexels-photo-8091515.jpeg",
+      "desc": "Ready-to-move 3 BHK with direct metro connectivity",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup",
+        "Security"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Gomti Nagar Lucknow Premium 4 BHK Home",
+      "price": 82000,
+      "city": "Lucknow",
+      "state": "Uttar Pradesh",
+      "area": 2800,
+      "beds": 4,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
+      "desc": "Spacious independent home in gated society with 2 car parking",
+      "amenities": [
+        "Garden",
+        "Security",
+        "Parking",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Alibaug Sea-View Mango Orchard Farmhouse",
+      "price": 155000,
+      "city": "Alibaug",
+      "state": "Maharashtra",
+      "area": 6500,
+      "beds": 6,
+      "type": "Farmhouse",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/8134821/pexels-photo-8134821.jpeg",
+      "desc": "Relaxing farmhouse with fruit trees and partial sea view",
+      "amenities": [
+        "Garden",
+        "Swimming Pool",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Sector 137 Noida Value 3 BHK Apartment",
+      "price": 45000,
+      "city": "Noida",
+      "state": "Uttar Pradesh",
+      "area": 1350,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/2121832/pexels-photo-2121832.jpeg",
+      "desc": "Affordable ready flat in good society with decent facilities",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup",
+        "Security"
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Jubilee Hills Signature 5 BHK Villa",
+      "price": 275000,
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "area": 5200,
+      "beds": 5,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/5365778/pexels-photo-5365778.jpeg",
+      "desc": "Premium villa with private theatre, gym and temperature-controlled pool",
+      "amenities": [
+        "Swimming Pool",
+        "Gym",
+        "Security",
+        "Garden",
+        "Parking"
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Koregaon Park Rooftop Terrace Duplex",
+      "price": 165000,
+      "city": "Pune",
+      "state": "Maharashtra",
+      "area": 3400,
+      "beds": 4,
+      "type": "Duplex",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/3612403/pexels-photo-3612403.jpeg",
+      "desc": "Stylish duplex in prime area with expansive private rooftop",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup",
+        "Security"
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Salt Lake Sector V Contemporary 3 BHK",
+      "price": 52000,
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "area": 1450,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/11916566/pexels-photo-11916566.jpeg",
+      "desc": "Modern 3 BHK with strong connectivity and society facilities",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Security",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Civil Lines Jaipur Vintage Bungalow",
+      "price": 205000,
+      "city": "Jaipur",
+      "state": "Rajasthan",
+      "area": 4800,
+      "beds": 6,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/2194399/pexels-photo-2194399.jpeg",
+      "desc": "Heritage-inspired large bungalow with generous lawn area",
+      "amenities": [
+        "Garden",
+        "Security",
+        "Parking",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 21,
+      "title": "Indiranagar Metro-Access 3 BHK Flat",
+      "price": 78000,
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "area": 1600,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/35932753/pexels-photo-35932753.png",
+      "desc": "Prime Indiranagar flat with metro proximity and community amenities",
+      "amenities": [
+        "Gym",
+        "Parking",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Vasant Kunj Green Belt 4 BHK Apartment",
+      "price": 105000,
+      "city": "Delhi",
+      "state": "Delhi",
+      "area": 1900,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/35143436/pexels-photo-35143436.jpeg",
+      "desc": "South Delhi peaceful setting with abundant greenery and modern conveniences",
+      "amenities": [
+        "Parking",
+        "Security",
+        "Garden"
+      ]
+    },
+    {
+      "id": 23,
+      "title": "Gachibowli IT-Corridor Luxury Villa",
+      "price": 245000,
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "area": 5100,
+      "beds": 5,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/29334668/pexels-photo-29334668.png",
+      "desc": "Premium villa close to major IT parks – private pool & entertainment room",
+      "amenities": [
+        "Swimming Pool",
+        "Gym",
+        "Security",
+        "Parking"
+      ]
+    },
+    {
+      "id": 24,
+      "title": "Kothrud Pune Convenient 3 BHK Residence",
+      "price": 58000,
+      "city": "Pune",
+      "state": "Maharashtra",
+      "area": 1450,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/28531613/pexels-photo-28531613.jpeg",
+      "desc": "Well-connected neighbourhood flat with contemporary fittings and facilities",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 25,
+      "title": "Alipore Kolkata Heritage Garden Bungalow",
+      "price": 135000,
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "area": 3200,
+      "beds": 4,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/5563473/pexels-photo-5563473.jpeg",
+      "desc": "Classic upscale area bungalow with substantial private garden space",
+      "amenities": [
+        "Garden",
+        "Security",
+        "Parking"
+      ]
+    },
+    {
+      "id": 26,
+      "title": "Khandala Hill Retreat Private Pool Farmhouse",
+      "price": 130000,
+      "city": "Khandala",
+      "state": "Maharashtra",
+      "area": 5800,
+      "beds": 5,
+      "type": "Farmhouse",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/10877601/pexels-photo-10877601.jpeg",
+      "desc": "Serene hill location farmhouse with private pool and fruit-bearing trees",
+      "amenities": [
+        "Swimming Pool",
+        "Garden",
+        "Parking"
+      ]
+    },
+    {
+      "id": 27,
+      "title": "Sector 50 Gurgaon Family Club Apartment",
+      "price": 68000,
+      "city": "Gurgaon",
+      "state": "Haryana",
+      "area": 1380,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://plus.unsplash.com/premium_photo-1764702440819-0386c0527076?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "desc": "Modern society apartment with clubhouse and dedicated children's play zone",
+      "amenities": [
+        "Gym",
+        "Parking",
+        "Lift",
+        "Security",
+        "Children's Play Area"
+      ]
+    },
+    {
+      "id": 28,
+      "title": "Jubilee Hills Infinity Pool & Cinema Villa",
+      "price": 310000,
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "area": 6200,
+      "beds": 6,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/29334668/pexels-photo-29334668.png",
+      "desc": "Top-tier villa featuring private home cinema and dramatic infinity pool",
+      "amenities": [
+        "Swimming Pool",
+        "Gym",
+        "Security",
+        "Garden"
+      ]
+    },
+    {
+      "id": 29,
+      "title": "South City Kolkata Spacious 4 BHK Flat",
+      "price": 92000,
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "area": 2100,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/4792297/pexels-photo-4792297.jpeg",
+      "desc": "Roomy premium-society apartment with comprehensive modern facilities",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup",
+        "Security"
+      ]
+    },
+    {
+      "id": 30,
+      "title": "Mansarovar Jaipur Modern Independent Bungalow",
+      "price": 105000,
+      "city": "Jaipur",
+      "state": "Rajasthan",
+      "area": 4000,
+      "beds": 5,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/5524167/pexels-photo-5524167.jpeg",
+      "desc": "Contemporary design bungalow on generous plot – calm residential area",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 31,
+      "title": "Satellite Ahmedabad Clubhouse 3 BHK",
+      "price": 72000,
+      "city": "Ahmedabad",
+      "state": "Gujarat",
+      "area": 1550,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/27604107/pexels-photo-27604107.png",
+      "desc": "Well-planned modern flat in Satellite with society club and connectivity",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Gym",
+        "Security"
+      ]
+    },
+    {
+      "id": 32,
+      "title": "Sector 17 Chandigarh Lawn Bungalow",
+      "price": 92000,
+      "city": "Chandigarh",
+      "state": "Chandigarh",
+      "area": 2900,
+      "beds": 4,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/8092380/pexels-photo-8092380.jpeg",
+      "desc": "Premium independent home with beautiful lawn and contemporary interiors",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 33,
+      "title": "Vijay Nagar Indore Family 4 BHK Flat",
+      "price": 82000,
+      "city": "Indore",
+      "state": "Madhya Pradesh",
+      "area": 1700,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/18048295/pexels-photo-18048295.jpeg",
+      "desc": "Prime location spacious flat with club facilities and play area for kids",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup",
+        "Gym"
+      ]
+    },
+    {
+      "id": 34,
+      "title": "Kolar Road Bhopal Garden Villa Lease",
+      "price": 100000,
+      "city": "Bhopal",
+      "state": "Madhya Pradesh",
+      "area": 4100,
+      "beds": 5,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/209296/pexels-photo-209296.jpeg",
+      "desc": "Gated-community villa with private garden space and media room",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 35,
+      "title": "Civil Lines Nagpur Comfortable 3 BHK",
+      "price": 48000,
+      "city": "Nagpur",
+      "state": "Maharashtra",
+      "area": 1400,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/18750277/pexels-photo-18750277.jpeg",
+      "desc": "Well-designed flat in good locality with essential modern amenities",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Security"
+      ]
+    },
+    {
+      "id": 36,
+      "title": "Bailey Road Patna Large Family Bungalow",
+      "price": 88000,
+      "city": "Patna",
+      "state": "Bihar",
+      "area": 3200,
+      "beds": 4,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/19963719/pexels-photo-19963719.jpeg",
+      "desc": "Spacious bungalow in premium area with substantial land around house",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 37,
+      "title": "Chandrasekharpur Bhubaneswar Pool Villa",
+      "price": 125000,
+      "city": "Bhubaneswar",
+      "state": "Odisha",
+      "area": 4500,
+      "beds": 5,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/6957079/pexels-photo-6957079.jpeg",
+      "desc": "Modern luxury villa featuring private swimming pool and stylish design",
+      "amenities": [
+        "Swimming Pool",
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 38,
+      "title": "Saibaba Colony Coimbatore Ready 4 BHK",
+      "price": 72000,
+      "city": "Coimbatore",
+      "state": "Tamil Nadu",
+      "area": 1750,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/32345990/pexels-photo-32345990.jpeg",
+      "desc": "Move-in ready apartment in prime colony with community club amenities",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Gym",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 39,
+      "title": "Vijayanagar Mysore Heritage Garden Bungalow",
+      "price": 115000,
+      "city": "Mysore",
+      "state": "Karnataka",
+      "area": 3900,
+      "beds": 5,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/32474275/pexels-photo-32474275.jpeg",
+      "desc": "Traditional-style bungalow with large garden in peaceful neighbourhood",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 40,
+      "title": "College Road Nashik Modern 4 BHK Flat",
+      "price": 65000,
+      "city": "Nashik",
+      "state": "Maharashtra",
+      "area": 1600,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/14600169/pexels-photo-14600169.jpeg",
+      "desc": "Contemporary flat in convenient college area with good road access",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 41,
+      "title": "Alkapuri Vadodara Garden Luxury Villa",
+      "price": 150000,
+      "city": "Vadodara",
+      "state": "Gujarat",
+      "area": 4300,
+      "beds": 5,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/1974596/pexels-photo-1974596.jpeg",
+      "desc": "Luxury villa in prime Alkapuri with private lawn and smart-home features",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 42,
+      "title": "Model Town Ludhiana Clubhouse 4 BHK",
+      "price": 92000,
+      "city": "Ludhiana",
+      "state": "Punjab",
+      "area": 2000,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/10902156/pexels-photo-10902156.jpeg",
+      "desc": "Premium society flat with club facilities in sought-after Model Town",
+      "amenities": [
+        "Gym",
+        "Parking",
+        "Lift",
+        "Security"
+      ]
+    },
+    {
+      "id": 43,
+      "title": "Shyam Nagar Agra Budget-Friendly 3 BHK",
+      "price": 46000,
+      "city": "Agra",
+      "state": "Uttar Pradesh",
+      "area": 1350,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/34277651/pexels-photo-34277651.jpeg",
+      "desc": "Affordable well-connected 3 bedroom flat in popular Shyam Nagar area",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 44,
+      "title": "Lanka Varanasi Spacious Lawn Bungalow",
+      "price": 110000,
+      "city": "Varanasi",
+      "state": "Uttar Pradesh",
+      "area": 3800,
+      "beds": 5,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/31737842/pexels-photo-31737842.jpeg",
+      "desc": "Large independent bungalow with beautiful lawn in calm Lanka locality",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 45,
+      "title": "Kakkanad Kochi Modern Club 4 BHK",
+      "price": 82000,
+      "city": "Kochi",
+      "state": "Kerala",
+      "area": 1900,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/20728292/pexels-photo-20728292.jpeg",
+      "desc": "Stylish 4 BHK flat with club amenities in growing Kakkanad area",
+      "amenities": [
+        "Gym",
+        "Parking",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 46,
+      "title": "Kawdiar Trivandrum Garden Residence Villa",
+      "price": 140000,
+      "city": "Thiruvananthapuram",
+      "state": "Kerala",
+      "area": 4500,
+      "beds": 5,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/4497544/pexels-photo-4497544.jpeg",
+      "desc": "Elegant villa with private garden in prestigious Kawdiar neighbourhood",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 47,
+      "title": "Seethammadhara Visakhapatnam 3 BHK Flat",
+      "price": 60000,
+      "city": "Visakhapatnam",
+      "state": "Andhra Pradesh",
+      "area": 1500,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/15663487/pexels-photo-15663487.jpeg",
+      "desc": "Well-planned comfortable flat in popular Seethammadhara area",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 48,
+      "title": "Benz Circle Vijayawada Lawn Villa",
+      "price": 92000,
+      "city": "Vijayawada",
+      "state": "Andhra Pradesh",
+      "area": 3200,
+      "beds": 4,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/31983498/pexels-photo-31983498.png",
+      "desc": "Spacious villa with private lawn in central Benz Circle location",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 49,
+      "title": "Raipur Prime Location 5 BHK Bungalow",
+      "price": 100000,
+      "city": "Raipur",
+      "state": "Chhattisgarh",
+      "area": 4000,
+      "beds": 5,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg",
+      "desc": "Large independent house on good plot in sought-after Raipur area",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 50,
+      "title": "Ganeshguri Guwahati Modern 4 BHK Flat",
+      "price": 78000,
+      "city": "Guwahati",
+      "state": "Assam",
+      "area": 1700,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/30608874/pexels-photo-30608874.jpeg",
+      "desc": "Contemporary apartment with excellent road access in Ganeshguri",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 51,
+      "title": "Koregaon Park Pune Club 3 BHK Residence",
+      "price": 92000,
+      "city": "Pune",
+      "state": "Maharashtra",
+      "area": 1450,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/2408230/pexels-photo-2408230.jpeg",
+      "desc": "Prime Koregaon Park flat with society club and modern fittings",
+      "amenities": [
+        "Gym",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 52,
+      "title": "Vasant Vihar Delhi Ultra-Luxury 6 BHK Villa",
+      "price": 370000,
+      "city": "Delhi",
+      "state": "Delhi",
+      "area": 6500,
+      "beds": 6,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/5587932/pexels-photo-5587932.jpeg",
+      "desc": "Exclusive villa with private pool and home theatre in prestigious Vasant Vihar",
+      "amenities": [
+        "Swimming Pool",
+        "Gym",
+        "Garden",
+        "Security"
+      ]
+    },
+    {
+      "id": 53,
+      "title": "Powai Lake-View 4 Bedroom Apartment",
+      "price": 135000,
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "area": 2100,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/31681835/pexels-photo-31681835.jpeg",
+      "desc": "Scenic lake-facing flat with contemporary design and amenities",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup",
+        "Gym"
+      ]
+    },
+    {
+      "id": 54,
+      "title": "Defence Colony Delhi Garden Bungalow",
+      "price": 255000,
+      "city": "Delhi",
+      "state": "Delhi",
+      "area": 4800,
+      "beds": 5,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/4682066/pexels-photo-4682066.jpeg",
+      "desc": "Spacious bungalow with beautiful lawn in prime Defence Colony",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 55,
+      "title": "Jayanagar Bangalore Well-Connected Flat",
+      "price": 82000,
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "area": 1550,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/10209711/pexels-photo-10209711.jpeg",
+      "desc": "Convenient Jayanagar location 3 BHK with good facilities",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 56,
+      "title": "Jubilee Hills Hyderabad Private Garden Villa",
+      "price": 215000,
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "area": 4000,
+      "beds": 4,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/12700529/pexels-photo-12700529.jpeg",
+      "desc": "Elegant villa with landscaped private garden in upscale Jubilee Hills",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 57,
+      "title": "Salt Lake City Kolkata Affordable 3 BHK",
+      "price": 50000,
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "area": 1350,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/276508/pexels-photo-276508.jpeg",
+      "desc": "Value-for-money flat with metro connectivity in Salt Lake",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Security"
+      ]
+    },
+    {
+      "id": 58,
+      "title": "C-Scheme Jaipur Large Plot Bungalow",
+      "price": 175000,
+      "city": "Jaipur",
+      "state": "Rajasthan",
+      "area": 4500,
+      "beds": 5,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/12700469/pexels-photo-12700469.jpeg",
+      "desc": "Spacious bungalow on generous plot in prestigious C-Scheme",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 59,
+      "title": "Hadapsar Pune Modern Comfort Flat",
+      "price": 63000,
+      "city": "Pune",
+      "state": "Maharashtra",
+      "area": 1600,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/6875971/pexels-photo-6875971.jpeg",
+      "desc": "Contemporary 4 BHK in growing Hadapsar with decent amenities",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 60,
+      "title": "Gachibowli Hyderabad Ultra-Premium Pool Villa",
+      "price": 295000,
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "area": 5500,
+      "beds": 6,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/13914276/pexels-photo-13914276.jpeg",
+      "desc": "Top-end villa near IT corridor with private swimming pool",
+      "amenities": [
+        "Swimming Pool",
+        "Gym",
+        "Security",
+        "Garden"
+      ]
+    },
+    {
+      "id": 61,
+      "title": "Bopal Ahmedabad Planned 3 BHK Apartment",
+      "price": 56000,
+      "city": "Ahmedabad",
+      "state": "Gujarat",
+      "area": 1400,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/33593769/pexels-photo-33593769.jpeg",
+      "desc": "Well-designed flat in Bopal with modern fittings and connectivity",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 62,
+      "title": "Zirakpur Smart Garden Villa",
+      "price": 115000,
+      "city": "Zirakpur",
+      "state": "Punjab",
+      "area": 3800,
+      "beds": 4,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/4469158/pexels-photo-4469158.jpeg",
+      "desc": "Gated villa with private lawn and smart-home technology",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 63,
+      "title": "Vijay Nagar Indore Lawn Bungalow Lease",
+      "price": 125000,
+      "city": "Indore",
+      "state": "Madhya Pradesh",
+      "area": 4500,
+      "beds": 5,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/8200050/pexels-photo-8200050.jpeg",
+      "desc": "Spacious bungalow with large lawn in popular Vijay Nagar",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 64,
+      "title": "Kolar Bhopal Affordable Club Flat",
+      "price": 43000,
+      "city": "Bhopal",
+      "state": "Madhya Pradesh",
+      "area": 1300,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/23894001/pexels-photo-23894001.jpeg",
+      "desc": "Value 3 BHK in society with clubhouse and play area",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Gym"
+      ]
+    },
+    {
+      "id": 65,
+      "title": "Dhantoli Nagpur Convenient 4 BHK Flat",
+      "price": 65000,
+      "city": "Nagpur",
+      "state": "Maharashtra",
+      "area": 1600,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/24380622/pexels-photo-24380622.jpeg",
+      "desc": "Well-located modern 4 bedroom flat with good connectivity",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 66,
+      "title": "Boring Road Patna Independent Garden Home",
+      "price": 92000,
+      "city": "Patna",
+      "state": "Bihar",
+      "area": 3500,
+      "beds": 5,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/31214421/pexels-photo-31214421.jpeg",
+      "desc": "Large family home with private lawn in central Boring Road",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 67,
+      "title": "Patia Bhubaneswar Club 4 BHK Apartment",
+      "price": 82000,
+      "city": "Bhubaneswar",
+      "state": "Odisha",
+      "area": 1850,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/14926219/pexels-photo-14926219.jpeg",
+      "desc": "Premium flat in Patia with clubhouse and modern amenities",
+      "amenities": [
+        "Gym",
+        "Parking",
+        "Lift",
+        "Security"
+      ]
+    },
+    {
+      "id": 68,
+      "title": "RS Puram Coimbatore Connected 3 BHK",
+      "price": 60000,
+      "city": "Coimbatore",
+      "state": "Tamil Nadu",
+      "area": 1450,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/32035885/pexels-photo-32035885.jpeg",
+      "desc": "Well-connected flat in RS Puram with contemporary facilities",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 69,
+      "title": "Jayalakshmipuram Mysore Garden Bungalow",
+      "price": 125000,
+      "city": "Mysore",
+      "state": "Karnataka",
+      "area": 4100,
+      "beds": 5,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/7546776/pexels-photo-7546776.jpeg",
+      "desc": "Traditional bungalow with large garden in peaceful Jayalakshmipuram",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 70,
+      "title": "Canada Corner Nashik Club 4 BHK Flat",
+      "price": 68000,
+      "city": "Nashik",
+      "state": "Maharashtra",
+      "area": 1650,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/32833615/pexels-photo-32833615.jpeg",
+      "desc": "Modern apartment with clubhouse facilities in Canada Corner",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Gym",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 71,
+      "title": "Gotri Vadodara Smart Garden Villa",
+      "price": 140000,
+      "city": "Vadodara",
+      "state": "Gujarat",
+      "area": 4300,
+      "beds": 5,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/26859027/pexels-photo-26859027.jpeg",
+      "desc": "Luxury villa with private garden and smart features in Gotri",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 72,
+      "title": "Model Town Ludhiana Premium 4 BHK Flat",
+      "price": 105000,
+      "city": "Ludhiana",
+      "state": "Punjab",
+      "area": 2100,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/9992775/pexels-photo-9992775.jpeg",
+      "desc": "High-end society apartment with excellent facilities in Model Town",
+      "amenities": [
+        "Gym",
+        "Parking",
+        "Lift",
+        "Security"
+      ]
+    },
+    {
+      "id": 73,
+      "title": "Kamla Nagar Agra Connected 3 BHK Flat",
+      "price": 50000,
+      "city": "Agra",
+      "state": "Uttar Pradesh",
+      "area": 1350,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/14424262/pexels-photo-14424262.jpeg",
+      "desc": "Well-connected affordable flat in popular Kamla Nagar",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 74,
+      "title": "Lanka Varanasi Peaceful Bungalow",
+      "price": 115000,
+      "city": "Varanasi",
+      "state": "Uttar Pradesh",
+      "area": 4000,
+      "beds": 5,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/7031596/pexels-photo-7031596.jpeg",
+      "desc": "Spacious independent home in calm Lanka surroundings",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 75,
+      "title": "Kakkanad Kochi Lake-View Club Flat",
+      "price": 92000,
+      "city": "Kochi",
+      "state": "Kerala",
+      "area": 1950,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/25033118/pexels-photo-25033118.jpeg",
+      "desc": "Modern 4 BHK with club facilities and partial lake view",
+      "amenities": [
+        "Gym",
+        "Parking",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 76,
+      "title": "Kowdiar Trivandrum Premium Garden Villa",
+      "price": 150000,
+      "city": "Thiruvananthapuram",
+      "state": "Kerala",
+      "area": 4600,
+      "beds": 5,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/8134845/pexels-photo-8134845.jpeg",
+      "desc": "Luxury villa with private garden in prestigious Kowdiar",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 77,
+      "title": "Seethammadhara Vizag Ventilated 3 BHK",
+      "price": 63000,
+      "city": "Visakhapatnam",
+      "state": "Andhra Pradesh",
+      "area": 1500,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/35680630/pexels-photo-35680630.png",
+      "desc": "Bright & well-ventilated flat in popular Seethammadhara area",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 78,
+      "title": "Benz Circle Vijayawada Private Lawn Villa",
+      "price": 98000,
+      "city": "Vijayawada",
+      "state": "Andhra Pradesh",
+      "area": 3400,
+      "beds": 4,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/7061662/pexels-photo-7061662.jpeg",
+      "desc": "Comfortable villa with personal lawn in central location",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 79,
+      "title": "VIP Road Raipur Modern Bungalow",
+      "price": 105000,
+      "city": "Raipur",
+      "state": "Chhattisgarh",
+      "area": 4200,
+      "beds": 5,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/5997992/pexels-photo-5997992.jpeg",
+      "desc": "Contemporary bungalow in prime VIP Road area",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 80,
+      "title": "Beltola Guwahati Club 4 BHK Apartment",
+      "price": 82000,
+      "city": "Guwahati",
+      "state": "Assam",
+      "area": 1800,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/31656167/pexels-photo-31656167.jpeg",
+      "desc": "Modern flat with club facilities in growing Beltola area",
+      "amenities": [
+        "Gym",
+        "Parking",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 81,
+      "title": "Kalyani Nagar Pune Club 3 BHK Flat",
+      "price": 82000,
+      "city": "Pune",
+      "state": "Maharashtra",
+      "area": 1450,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/7009248/pexels-photo-7009248.jpeg",
+      "desc": "Prime Kalyani Nagar flat with society club amenities",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Security"
+      ]
+    },
+    {
+      "id": 82,
+      "title": "Greater Kailash Delhi Luxury Pool Villa",
+      "price": 390000,
+      "city": "Delhi",
+      "state": "Delhi",
+      "area": 6200,
+      "beds": 6,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/26859048/pexels-photo-26859048.jpeg",
+      "desc": "Ultra-premium villa with private swimming pool in Greater Kailash",
+      "amenities": [
+        "Swimming Pool",
+        "Gym",
+        "Garden",
+        "Security"
+      ]
+    },
+    {
+      "id": 83,
+      "title": "Hiranandani Powai Lake-View 4 BHK",
+      "price": 145000,
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "area": 2200,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/12448279/pexels-photo-12448279.jpeg",
+      "desc": "Scenic lake-view apartment with modern amenities in Hiranandani",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Gym",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 84,
+      "title": "Vasant Vihar Delhi Large Lawn Bungalow",
+      "price": 295000,
+      "city": "Delhi",
+      "state": "Delhi",
+      "area": 5000,
+      "beds": 5,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg",
+      "desc": "Premium bungalow with expansive lawn in Vasant Vihar",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security"
+      ]
+    },
+    {
+      "id": 85,
+      "title": "Jayanagar 4th Block Bangalore Connected Flat",
+      "price": 88000,
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "area": 1550,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/23893993/pexels-photo-23893993.jpeg",
+      "desc": "Well-connected 3 BHK in Jayanagar with good facilities",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 86,
+      "title": "Madhapur Hyderabad Garden-Facing Villa",
+      "price": 235000,
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "area": 4800,
+      "beds": 5,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/19219055/pexels-photo-19219055.jpeg",
+      "desc": "Luxury villa near IT corridor with private garden and modern fittings",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security",
+        "Power Backup",
+        "Gym"
+      ]
+    },
+    {
+      "id": 87,
+      "title": "New Town Kolkata Metro-Connected 4 BHK",
+      "price": 68000,
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "area": 1700,
+      "beds": 4,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/13393791/pexels-photo-13393791.jpeg",
+      "desc": "Modern flat with direct metro access in growing New Town area",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Security",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 88,
+      "title": "Malviya Nagar Jaipur Large Lawn Bungalow",
+      "price": 210000,
+      "city": "Jaipur",
+      "state": "Rajasthan",
+      "area": 5200,
+      "beds": 6,
+      "type": "Bungalow",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/19649140/pexels-photo-19649140.jpeg",
+      "desc": "Spacious bungalow with big private lawn in calm Malviya Nagar area",
+      "amenities": [
+        "Garden",
+        "Parking",
+        "Security",
+        "Power Backup"
+      ]
+    },
+    {
+      "id": 89,
+      "title": "Hadapsar Pune Convenient 3 BHK Flat",
+      "price": 62000,
+      "city": "Pune",
+      "state": "Maharashtra",
+      "area": 1450,
+      "beds": 3,
+      "type": "Apartment",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/34801946/pexels-photo-34801946.jpeg",
+      "desc": "Well-connected modern 3 BHK in Hadapsar – good society facilities",
+      "amenities": [
+        "Parking",
+        "Lift",
+        "Power Backup",
+        "Security"
+      ]
+    },
+    {
+      "id": 90,
+      "title": "Gachibowli Hyderabad Luxury Pool Villa",
+      "price": 255000,
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "area": 5000,
+      "beds": 5,
+      "type": "Villa",
+      "for": "rent",
+      "img": "https://images.pexels.com/photos/34277699/pexels-photo-34277699.jpeg",
+      "desc": "Premium villa near IT hub with private pool and smart interiors",
+      "amenities": [
+        "Swimming Pool",
+        "Gym",
+        "Security",
+        "Garden",
+        "Parking",
+        "Power Backup"
+      ]
+    }
+  ]
+}
