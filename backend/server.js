@@ -514,11 +514,6 @@
 
 
 
-
-
-
-//server.js
-
 const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
@@ -531,63 +526,59 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
 const Property = require('./models/Property');
 const User = require('./models/User');
 const connectDB = require('./config/db');
 
-
 const app = express();
 const server = http.createServer(app);
 
-const io = new Server(server, {
-  cors: { origin: process.env.CLIENT_URL || "http://localhost:5173", methods: ["GET", "POST"] }
-});
+// ✅ FIX 1 — ONE corsOptions object shared by Express AND Socket.io
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    if (/\.vercel\.app$/.test(origin)) return callback(null, true);
+    if (/^http:\/\/localhost:(5173|3000)$/.test(origin)) return callback(null, true);
+    callback(new Error(`CORS blocked: ${origin}`));
+  },
+  credentials: true,
+};
+
+// ✅ FIX 1 continued — Socket.io now uses the same corsOptions
+const io = new Server(server, { cors: corsOptions });
 
 const PORT = process.env.PORT || 5000;
 
-
-const uploadsDir = path.join(__dirname, 'uploads');
-if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir);
-
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, uploadsDir),
-  filename: (req, file, cb) => {
-    const unique = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
-    cb(null, unique + path.extname(file.originalname));
-  }
+// ✅ FIX 2 — Cloudinary storage instead of local disk (Render wipes local files on restart)
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key:    process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
+
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: 'urbannest360',
+    allowed_formats: ['jpg', 'jpeg', 'png', 'webp'],
+  },
+});
+
 const upload = multer({
   storage,
-  limits: { fileSize: 10 * 1024 * 1024 }, 
+  limits: { fileSize: 10 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
     if (file.mimetype.startsWith('image/')) cb(null, true);
     else cb(new Error('Only image files allowed'));
-  }
+  },
 });
-
-// app.use(express.json({ limit: '10mb' }));
-// app.use(express.urlencoded({ limit: '10mb', extended: true }));
-// app.use(cors());
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
-
-// ✅ FIXED CORS - Supports Production + All Preview URLs
-app.use(cors({
-  origin: [
-    'https://urbannnest360.vercel.app',           // Production
-    /\.vercel\.app$/,                             // ALL Vercel preview domains (important!)
-    process.env.CLIENT_URL,
-    'https://urbannest360-api.onrender.com',
-    'http://localhost:5173',
-    'http://localhost:3000'
-  ],
-  credentials: true
-}));
-
-app.use('/uploads', express.static(uploadsDir));
+app.use(cors(corsOptions));  // ✅ uses same corsOptions
 
 app.use((req, res, next) => { console.log(`${req.method} ${req.url}`); next(); });
 
@@ -598,7 +589,6 @@ app.use(session({
   store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
   cookie: { maxAge: 1000 * 60 * 60 * 24 * 7, httpOnly: true, secure: false }
 }));
-
 
 app.post('/api/auth/register', async (req, res) => {
   try {
@@ -658,11 +648,10 @@ const authMiddleware = (req, res, next) => {
   }
 };
 
-
 app.get('/api/user-properties', authMiddleware, async (req, res) => {
   try {
     const userEmail = req.user.email;
-    console.log(' Fetching properties for email:', userEmail);
+    console.log('Fetching properties for email:', userEmail);
     const properties = await Property.find({ postedByEmail: userEmail }).sort({ createdAt: -1 });
     console.log(`Found ${properties.length} properties for ${userEmail}`);
     res.json(properties);
@@ -672,27 +661,24 @@ app.get('/api/user-properties', authMiddleware, async (req, res) => {
   }
 });
 
-
 app.post('/api/user-properties', authMiddleware, upload.array('images', 8), async (req, res) => {
   try {
     const { title, category, type, beds, area, price, location, description, desc, amenities } = req.body;
 
-    console.log(' Files received:', req.files?.length || 0);
-    console.log(' title:', title, '| price:', price);
+    console.log('Files received:', req.files?.length || 0);
+    console.log('title:', title, '| price:', price);
 
     if (!req.files || req.files.length === 0) {
       return res.status(400).json({ error: 'Please upload at least one image.' });
     }
 
-    // const imageUrls = req.files.map(f => `${process.env.BACKEND_URL || 'http://localhost:5000'}/uploads/${f.filename}`);
-    const backendUrl = process.env.BACKEND_URL || `http://localhost:${PORT}`;
-    const imageUrls = req.files.map(f => `${backendUrl}/uploads/${f.filename}`);
+    // ✅ FIX 2 continued — Cloudinary gives us .path directly, no manual URL building
+    const imageUrls = req.files.map(f => f.path);
 
     const listingType = (category === 'sell' || category === 'buy') ? 'buy' : 'rent';
     const locationParts = (location || '').split(',');
     const city = locationParts[0]?.trim() || 'Unknown';
     const state = locationParts[1]?.trim() || 'Unknown';
-
 
     let parsedAmenities = [];
     if (amenities) {
@@ -712,7 +698,7 @@ app.post('/api/user-properties', authMiddleware, upload.array('images', 8), asyn
       desc: String(desc || description || 'No description available.'),
       amenities: parsedAmenities,
       images: imageUrls,
-      img: imageUrls[0], // first image = cover
+      img: imageUrls[0],
       postedByEmail: req.user.email,
       postedBy: req.user.userId,
       category: String(category || ''),
@@ -726,7 +712,7 @@ app.post('/api/user-properties', authMiddleware, upload.array('images', 8), asyn
     io.emit('new-property', saved);
     res.status(201).json(saved);
   } catch (err) {
-    console.error(' Post error:', err.message);
+    console.error('Post error:', err.message);
     res.status(500).json({ error: 'Failed to post property', detail: err.message });
   }
 });
@@ -734,22 +720,21 @@ app.post('/api/user-properties', authMiddleware, upload.array('images', 8), asyn
 app.delete('/api/user-properties/:id', authMiddleware, async (req, res) => {
   try {
     const userEmail = req.user.email;
-    console.log(`🗑️ Delete request for id: ${req.params.id} by ${userEmail}`);
+    console.log(`Delete request for id: ${req.params.id} by ${userEmail}`);
     const deleted = await Property.findOneAndDelete({ _id: req.params.id, postedByEmail: userEmail });
     if (!deleted) return res.status(404).json({ error: 'Property not found or unauthorized' });
 
-    
+    // ✅ FIX 2 continued — delete from Cloudinary instead of local disk
     if (deleted.images && deleted.images.length > 0) {
-      deleted.images.forEach(url => {
-        const filename = url.split('/uploads/')[1];
-        if (filename) {
-          const filePath = path.join(uploadsDir, filename);
-          if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
-        }
-      });
+      for (const url of deleted.images) {
+        // Cloudinary public_id is the part after the last / without extension
+        const parts = url.split('/');
+        const publicId = `urbannest360/${parts[parts.length - 1].split('.')[0]}`;
+        await cloudinary.uploader.destroy(publicId);
+      }
     }
 
-    console.log(` Deleted property ${req.params.id}`);
+    console.log(`Deleted property ${req.params.id}`);
     res.status(204).send();
   } catch (err) {
     console.error('Delete error:', err);
@@ -785,13 +770,11 @@ app.post('/api/favorites/toggle', authMiddleware, async (req, res) => {
 const InterestedBuyer = require('./models/InterestedBuyer');
 
 app.post('/api/interested-buyers', async (req, res) => {
-  
   try {
     const { propertyId, name, email, whatsapp, message, service } = req.body;
     if (!propertyId || !name || !email) return res.status(400).json({ error: 'propertyId, name and email are required' });
     const buyer = await InterestedBuyer.create({ propertyId, name, email, whatsapp, message, service });
-    console.log(`✅ Interested buyer saved: ${email} for property ${propertyId}`);
-    
+    console.log(`Interested buyer saved: ${email} for property ${propertyId}`);
     res.status(201).json(buyer);
   } catch (err) {
     console.error('InterestedBuyer save error:', err);
@@ -802,11 +785,11 @@ app.post('/api/interested-buyers', async (req, res) => {
 app.get('/api/interested-buyers/:propertyId', authMiddleware, async (req, res) => {
   try {
     const propertyId = req.params.propertyId;
-    console.log(` Looking for buyers with propertyId: "${propertyId}"`);
+    console.log(`Looking for buyers with propertyId: "${propertyId}"`);
     const allBuyers = await InterestedBuyer.find({});
-    console.log(` All buyers in DB:`, allBuyers.map(b => ({ propertyId: b.propertyId, name: b.name })));
+    console.log(`All buyers in DB:`, allBuyers.map(b => ({ propertyId: b.propertyId, name: b.name })));
     const buyers = await InterestedBuyer.find({ propertyId }).sort({ createdAt: -1 });
-    console.log(` Matched buyers: ${buyers.length}`);
+    console.log(`Matched buyers: ${buyers.length}`);
     res.json(buyers);
   } catch (err) {
     console.error(err);
@@ -814,32 +797,10 @@ app.get('/api/interested-buyers/:propertyId', authMiddleware, async (req, res) =
   }
 });
 
-// app.get('/api/buy-properties', async (req, res) => {
-//   try {
-//     const properties = await Property.find({ for: 'buy' }).sort({ createdAt: -1 });
-//     console.log(`Buy: ${properties.length} properties`);
-//     res.json(properties);
-//   } catch (err) {
-//     res.status(500).json({ error: 'Failed to fetch buy properties' });
-//   }
-// });
-
-// app.get('/api/rent-properties', async (req, res) => {
-//   try {
-//     const properties = await Property.find({ for: 'rent' }).sort({ createdAt: -1 });
-//     console.log(`Rent: ${properties.length} properties`);
-//     res.json(properties);
-//   } catch (err) {
-//     res.status(500).json({ error: 'Failed to fetch rent properties' });
-//   }
-// });
-// ==================== TEMPORARY - SHOW ALL PROPERTIES ====================
 app.get('/api/buy-properties', async (req, res) => {
   try {
-    const properties = await Property.find({})
-      .sort({ createdAt: -1 });
-    
-    console.log(`✅ ALL Properties loaded for Buy: ${properties.length}`);
+    const properties = await Property.find({}).sort({ createdAt: -1 });
+    console.log(`ALL Properties loaded for Buy: ${properties.length}`);
     res.json(properties);
   } catch (err) {
     console.error('Buy fetch error:', err);
@@ -849,17 +810,15 @@ app.get('/api/buy-properties', async (req, res) => {
 
 app.get('/api/rent-properties', async (req, res) => {
   try {
-    const properties = await Property.find({})
-      .sort({ createdAt: -1 });
-    
-    console.log(`✅ ALL Properties loaded for Rent: ${properties.length}`);
+    const properties = await Property.find({}).sort({ createdAt: -1 });
+    console.log(`ALL Properties loaded for Rent: ${properties.length}`);
     res.json(properties);
   } catch (err) {
     console.error('Rent fetch error:', err);
     res.status(500).json({ error: 'Failed to fetch properties' });
   }
 });
-// =====================================================================
+
 app.get('/api/buy-properties/:id', async (req, res) => {
   try {
     const property = await Property.findOne({ id: parseInt(req.params.id) });
@@ -878,197 +837,44 @@ app.get('/api/rent-properties/:id', async (req, res) => {
   }
 });
 
-
-
-
-//SSR
 const getFirstImage = (property) => {
-  
-  if (property.images && property.images.length > 0) {
-    return property.images[0];
-  }
-  
-  if (property.img) {
-    return property.img;
-  }
- 
+  if (property.images && property.images.length > 0) return property.images[0];
+  if (property.img) return property.img;
   return 'https://via.placeholder.com/300x200?text=No+Image';
 };
 
-
 app.get('/ssr/buy', async (req, res) => {
   try {
-    const properties = await Property.find({ for: 'buy' })
-      .sort({ createdAt: -1 })
-      .limit(12);
-
-    let html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buy Properties - SSR | UrbanNest360</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background: #f9fafb;
-        }
-        h1 { color: #1f2937; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .property {
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 8px;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .property h3 {
-            margin: 0 0 10px 0;
-            color: #1f2937;
-        }
-        .price {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #ea580c;
-        }
-        img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 6px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Buy Properties - Server Side Rendered</h1>
-    <p><strong>Total Buy Properties:</strong> ${properties.length}</p>
-    <div class="grid">`;
-
+    const properties = await Property.find({ for: 'buy' }).sort({ createdAt: -1 }).limit(12);
+    let html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Buy Properties - SSR | UrbanNest360</title><style>body{font-family:Arial,sans-serif;padding:20px;background:#f9fafb;}h1{color:#1f2937;}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:20px;}.property{border:1px solid #ddd;padding:15px;border-radius:8px;background:white;box-shadow:0 2px 8px rgba(0,0,0,0.1);}.property h3{margin:0 0 10px 0;color:#1f2937;}.price{font-size:1.3rem;font-weight:bold;color:#ea580c;}img{width:100%;height:200px;object-fit:cover;border-radius:6px;}</style></head><body><h1>Buy Properties - Server Side Rendered</h1><p><strong>Total Buy Properties:</strong> ${properties.length}</p><div class="grid">`;
     properties.forEach(p => {
-      const imageUrl = getFirstImage(p);
-
-      html += `
-        <div class="property">
-            <img src="${imageUrl}" alt="${p.title || 'Property'}">
-            <h3>${p.title || 'No Title'}</h3>
-            <p class="price">₹${Number(p.price || 0).toLocaleString()}</p>
-            <p><strong>Location:</strong> ${p.location || p.city || 'N/A'}</p>
-            <p><strong>Beds:</strong> ${p.beds || 'N/A'} | Area: ${p.area || 'N/A'} sqft</p>
-            ${p.type ? `<p><strong>Type:</strong> ${p.type}</p>` : ''}
-        </div>`;
+      html += `<div class="property"><img src="${getFirstImage(p)}" alt="${p.title || 'Property'}"><h3>${p.title || 'No Title'}</h3><p class="price">₹${Number(p.price || 0).toLocaleString()}</p><p><strong>Location:</strong> ${p.location || p.city || 'N/A'}</p><p><strong>Beds:</strong> ${p.beds || 'N/A'} | Area: ${p.area || 'N/A'} sqft</p>${p.type ? `<p><strong>Type:</strong> ${p.type}</p>` : ''}</div>`;
     });
-
-    html += `</div>
-    <p style="margin-top:30px; color:gray; font-size:0.9rem;">
-        Right click → View Page Source to verify SSR.<br>
-        Showing real images from both 'images' array and 'img' field.
-    </p>
-</body>
-</html>`;
-
+    html += `</div></body></html>`;
     res.send(html);
   } catch (err) {
-    console.error('SSR Buy Error:', err);
     res.send('<h1>Error loading buy properties</h1>');
   }
 });
 
-
 app.get('/ssr/rent', async (req, res) => {
   try {
-    const properties = await Property.find({ for: 'rent' })
-      .sort({ createdAt: -1 })
-      .limit(12);
-
-    let html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rent Properties - SSR | UrbanNest360</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background: #f9fafb;
-        }
-        h1 { color: #1f2937; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .property {
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 8px;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .property h3 {
-            margin: 0 0 10px 0;
-            color: #1f2937;
-        }
-        .price {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #16a34a;
-        }
-        img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 6px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Rent Properties - Server Side Rendered</h1>
-    <p><strong>Total Rent Properties:</strong> ${properties.length}</p>
-    <div class="grid">`;
-
+    const properties = await Property.find({ for: 'rent' }).sort({ createdAt: -1 }).limit(12);
+    let html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Rent Properties - SSR | UrbanNest360</title><style>body{font-family:Arial,sans-serif;padding:20px;background:#f9fafb;}h1{color:#1f2937;}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:20px;}.property{border:1px solid #ddd;padding:15px;border-radius:8px;background:white;box-shadow:0 2px 8px rgba(0,0,0,0.1);}.property h3{margin:0 0 10px 0;color:#1f2937;}.price{font-size:1.3rem;font-weight:bold;color:#16a34a;}img{width:100%;height:200px;object-fit:cover;border-radius:6px;}</style></head><body><h1>Rent Properties - Server Side Rendered</h1><p><strong>Total Rent Properties:</strong> ${properties.length}</p><div class="grid">`;
     properties.forEach(p => {
-      const imageUrl = getFirstImage(p);
-
-      html += `
-        <div class="property">
-            <img src="${imageUrl}" alt="${p.title || 'Property'}">
-            <h3>${p.title || 'No Title'}</h3>
-            <p class="price">₹${Number(p.price || 0).toLocaleString()} / month</p>
-            <p><strong>Location:</strong> ${p.location || p.city || 'N/A'}</p>
-            <p><strong>Beds:</strong> ${p.beds || 'N/A'} | Area: ${p.area || 'N/A'} sqft</p>
-            ${p.type ? `<p><strong>Type:</strong> ${p.type}</p>` : ''}
-        </div>`;
+      html += `<div class="property"><img src="${getFirstImage(p)}" alt="${p.title || 'Property'}"><h3>${p.title || 'No Title'}</h3><p class="price">₹${Number(p.price || 0).toLocaleString()} / month</p><p><strong>Location:</strong> ${p.location || p.city || 'N/A'}</p><p><strong>Beds:</strong> ${p.beds || 'N/A'} | Area: ${p.area || 'N/A'} sqft</p>${p.type ? `<p><strong>Type:</strong> ${p.type}</p>` : ''}</div>`;
     });
-
-    html += `</div>
-    <p style="margin-top:30px; color:gray; font-size:0.9rem;">
-        Right click → View Page Source to verify SSR.<br>
-        Showing real images from both 'images' array and 'img' field.
-    </p>
-</body>
-</html>`;
-
+    html += `</div></body></html>`;
     res.send(html);
   } catch (err) {
-    console.error('SSR Rent Error:', err);
     res.send('<h1>Error loading rent properties</h1>');
   }
 });
 
-// SOCKET.IO 
 io.on('connection', (socket) => {
   console.log('Socket.io connected');
   socket.on('disconnect', () => console.log('Socket disconnected'));
 });
-
 
 server.listen(PORT, () => {
   console.log(`Server on http://localhost:${PORT}`);
