@@ -833,29 +833,33 @@ app.get('/api/interested-buyers/:propertyId', authMiddleware, async (req, res) =
 //     res.status(500).json({ error: 'Failed to fetch rent properties' });
 //   }
 // });
+// ==================== TEMPORARY - SHOW ALL PROPERTIES ====================
 app.get('/api/buy-properties', async (req, res) => {
   try {
-    const properties = await Property.find({ 
-      $or: [{ for: 'buy' }, { category: 'sell' }, { category: 'buy' }] 
-    }).sort({ createdAt: -1 });
-    console.log(`Buy: ${properties.length} properties`);
+    const properties = await Property.find({})
+      .sort({ createdAt: -1 });
+    
+    console.log(`✅ ALL Properties loaded for Buy: ${properties.length}`);
     res.json(properties);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch buy properties' });
+    console.error('Buy fetch error:', err);
+    res.status(500).json({ error: 'Failed to fetch properties' });
   }
 });
 
 app.get('/api/rent-properties', async (req, res) => {
   try {
-    const properties = await Property.find({ 
-      $or: [{ for: 'rent' }, { category: 'rent' }] 
-    }).sort({ createdAt: -1 });
-    console.log(`Rent: ${properties.length} properties`);
+    const properties = await Property.find({})
+      .sort({ createdAt: -1 });
+    
+    console.log(`✅ ALL Properties loaded for Rent: ${properties.length}`);
     res.json(properties);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch rent properties' });
+    console.error('Rent fetch error:', err);
+    res.status(500).json({ error: 'Failed to fetch properties' });
   }
 });
+// =====================================================================
 app.get('/api/buy-properties/:id', async (req, res) => {
   try {
     const property = await Property.findOne({ id: parseInt(req.params.id) });
